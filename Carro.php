@@ -5,21 +5,26 @@
 
 class Carro
 {
+  const POTENCIA=1.0;
+  const PESO=1000;
+  
+  
+    
   public  $cor="Branco";
-  private $peso =1000;
   private $combustivel ="Gasolina";
-  private $quantCombustivel =0;
+  protected $quantCombustivel =0;
   private $velocidade=0;
   private $kilometragem =0;
-  private $potencia=1.0;
   private $ligado=false;
-  
+  private $chassi ='xyz123'; 
+  protected $valvulas =8;
   /**
    * Construtor do Carro
    * @param type $cor
    */
   public function __construct($cor="Branco") {
       $this->cor =$cor;
+      $this->chassi= uniqid();
   }
 
    /**
@@ -57,7 +62,7 @@ class Carro
   public  function acelerar($valor)
   {
  
-        $this->velocidade = $valor * $this->potencia;
+        $this->velocidade = $valor * self::POTENCIA;
         $this->alimentarCombustivel();
         $this->kilometragem +=$this->velocidade;
     
@@ -83,7 +88,7 @@ class Carro
   private function alimentarCombustivel()
    {
       if($this->quantCombustivel >0){ 
-        $quant = $this->potencia * $this->velocidade* $this->peso;
+        $quant = static::POTENCIA * $this->velocidade* static::PESO;
         $this->quantCombustivel -= $quant/6000;
       }
       else
@@ -92,4 +97,16 @@ class Carro
       }
               
   }
+  static public function obterPotencia()
+  {
+      return self::POTENCIA;
+  }
+  public function valvulas()
+  {
+      return $this->valvulas;
+  }
+  public function __toString() {
+      return static::PESO . " ".static::POTENCIA;
+  }
+ 
 }
