@@ -29,8 +29,8 @@
  //echo carro03::POTENCIA;
  $nome ="Lucas";
  
- $func = function(){
-     
- }
- func();        
-         
+ $func = function()use($nome){
+     return $nome;
+ };
+ // invocando closure
+echo $func() ."\n";

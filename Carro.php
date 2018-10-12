@@ -1,4 +1,5 @@
 <?php
+  require_once './motor/Motor10.php';
 /**
  * @author Lucas Maciel
  */
@@ -15,15 +16,17 @@ class Carro
   protected $quantCombustivel =0;
   private $velocidade=0;
   private $kilometragem =0;
-  private $ligado=false;
+  //private $ligado=false;
   private $chassi ='xyz123'; 
   protected $valvulas =8;
+  private $motor;
   /**
    * Construtor do Carro
    * @param type $cor
    */
-  public function __construct($cor="Branco") {
+  public function __construct($cor="Branco",Motor10 $motor) {
       $this->cor =$cor;
+      $this->motor =$motor;
       $this->chassi= uniqid();
   }
 
@@ -34,7 +37,7 @@ class Carro
   {  
         if($this->quantCombustivel>0){
             
-          $this->ligado=true;
+          $this->motor->ligar();
          
         }
        
@@ -45,7 +48,7 @@ class Carro
    */
   public function desligar()
   {
-          $this->ligado=false;
+          $this->motor->desligar();
     
   }
   /**
