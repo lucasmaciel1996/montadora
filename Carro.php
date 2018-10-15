@@ -1,4 +1,6 @@
 <?php
+  namespace Montadora;
+  
   require_once './motor/Motor10.php';
 /**
  * @author Lucas Maciel
@@ -24,7 +26,7 @@ class Carro
    * Construtor do Carro
    * @param type $cor
    */
-  public function __construct($cor="Branco",Motor10 $motor) {
+  public function __construct($cor="Branco", $motor) {
       $this->cor =$cor;
       $this->motor =$motor;
       $this->chassi= uniqid();

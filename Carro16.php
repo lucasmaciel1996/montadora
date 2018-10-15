@@ -1,5 +1,8 @@
 <?php 
-    require_once 'Carro.php';
+  
+  namespace Montadora;
+  
+  require_once 'Carro.php';
   class Carro16 extends Carro 
   {
     const POTENCIA=1.6;

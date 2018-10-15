@@ -1,4 +1,5 @@
 <?php
+namespace Montadora\motor;
 /**
  * @author Lucas
  * 

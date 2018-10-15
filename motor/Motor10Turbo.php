@@ -1,5 +1,5 @@
 <?php
-
+  namespace Montadora\motor;
 
 /**
  * Description of Motor10Turbo

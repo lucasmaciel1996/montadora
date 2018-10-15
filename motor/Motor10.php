@@ -1,4 +1,6 @@
 <?php
+   namespace Montadora\motor;
+
     require_once 'InterfaceMotor.php';
 /**
  * Description of Motor10
