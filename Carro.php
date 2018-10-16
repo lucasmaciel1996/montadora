@@ -92,13 +92,22 @@ class Carro
    */
   private function alimentarCombustivel()
    {
+      
       if($this->quantCombustivel >0){ 
-        $quant = static::POTENCIA * $this->velocidade* static::PESO;
-        $this->quantCombustivel -= $quant/6000;
+          
+          
+        if($this->quantCombustivel <5)
+        {
+            //echo "Na reserva \n";
+            throw new motor\Erro("Na reserva 5l");
+        }
+          $quant = static::POTENCIA * $this->velocidade* static::PESO;
+          $this->quantCombustivel -= $quant/6000;
       }
       else
       {
           $this->desligar();
+          throw new \Exception('Motor desligado');
       }
               
   }
@@ -109,7 +118,7 @@ class Carro
   public function valvulas()
   {
       return $this->valvulas;
-  }
+  } 
   public function __toString() {
       return static::PESO . " ".static::POTENCIA;
   }

@@ -1,0 +1,15 @@
+{
+    
+    "name": "lucasmaciel1996/montadora",
+    "description": "Montadora",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Lucas",
+            "email": "lucas333maciel@gmail.com"
+        }
+    ],
+    "require": {
+        "psr/log": "^1.0"
+    }
+}
